@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd"
+              xmlns   =   "http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+        <loc>https://example.com/index0.xml.gz?x=☂</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://example.com/index1.xml.gz</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.000</priority>
+        <lastmod>invalid</lastmod>
+    </sitemap>
+    <url>
+        <LOC>https://example.com/page/1</LOC>
+        <changefreq>yearly</changefreq>
+        <priority>0.000</priority>
+        <lastmod>2019-05-23</lastmod>
+    </url>
+    <URL>
+        <loc>https://example.com/page/2</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.000</priority>
+        <lastmod>2019-02-02T14:05:06+06:44</lastmod>
+    </URL>
+</sitemapindex>
