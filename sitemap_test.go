@@ -9,12 +9,16 @@ import (
 	"testing"
 )
 
+// nolint
 var testURL, _ = url.Parse(`http://example.com/sitemap.xml`)
+
+// nolint
 var baseHTTPResponse = http.Response{
 	StatusCode: 200,
 	Header:     map[string][]string{`Content-Type`: {`text/xml`}},
-	Body:       ioutil.NopCloser(bytes.NewBufferString(`<sitemap><url><loc>http://example.com/home</loc></url></sitemap>`)),
-	Request:    &http.Request{URL: testURL},
+	Body: ioutil.NopCloser(
+		bytes.NewBufferString(`<sitemap><url><loc>http://example.com/home</loc></url></sitemap>`)),
+	Request: &http.Request{URL: testURL},
 }
 
 func TestParseURL(t *testing.T) {
@@ -39,10 +43,34 @@ func TestParseURL(t *testing.T) {
 		Priority   float64
 		Type       int
 	}{
-		{Loc: `https://example.com/index0.xml.gz?x=☂`, Type: TypeSitemap, ChangeFreq: ``, Priority: 0, LastMod: `0001-01-01T00:00:00Z`},
-		{Loc: `https://example.com/index1.xml.gz`, Type: TypeSitemap, ChangeFreq: `yearly`, Priority: 0, LastMod: `0001-01-01T00:00:00Z`},
-		{Loc: `https://example.com/page/1`, Type: TypeURL, ChangeFreq: `yearly`, Priority: 0, LastMod: `2019-05-23T00:00:00Z`},
-		{Loc: `https://example.com/page/2`, Type: TypeURL, ChangeFreq: `weekly`, Priority: 1, LastMod: `2019-02-02T14:05:06+06:44`},
+		{
+			Loc:        `https://example.com/index0.xml.gz?x=☂`,
+			Type:       TypeSitemap,
+			ChangeFreq: ``,
+			Priority:   0,
+			LastMod:    `0001-01-01T00:00:00Z`,
+		},
+		{
+			Loc:        `https://example.com/index1.xml.gz`,
+			Type:       TypeSitemap,
+			ChangeFreq: `yearly`,
+			Priority:   0,
+			LastMod:    `0001-01-01T00:00:00Z`,
+		},
+		{
+			Loc:        `https://example.com/page/1`,
+			Type:       TypeURL,
+			ChangeFreq: `yearly`,
+			Priority:   0,
+			LastMod:    `2019-05-23T00:00:00Z`,
+		},
+		{
+			Loc:        `https://example.com/page/2`,
+			Type:       TypeURL,
+			ChangeFreq: `weekly`,
+			Priority:   1,
+			LastMod:    `2019-02-02T14:05:06+06:44`,
+		},
 	}
 
 	for i, c := range cases {

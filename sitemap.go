@@ -111,13 +111,13 @@ func ParseResponse(resp *http.Response, callback func(*Item)) error {
 
 	if strings.Contains(mime, `xml`) || strings.Contains(baseName, `.xml`) {
 		return ParseStreamXML(reader, wrapCallback)
-	} else if strings.Contains(mime, `plain`) || strings.Contains(baseName, `.txt`) {
-		ParseStreamPlain(reader, wrapCallback)
-	} else {
-		return ErrWrongContentType
 	}
 
-	return nil
+	if strings.Contains(mime, `plain`) || strings.Contains(baseName, `.txt`) {
+		ParseStreamPlain(reader, wrapCallback)
+	}
+
+	return ErrWrongContentType
 }
 
 // CallbackWithClient can be use for deep parsing nested locations to another sitemaps
