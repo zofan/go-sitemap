@@ -2,8 +2,6 @@
 [![Godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/zofan/go-sitemap)
 [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/zofan/go-sitemap/master/LICENSE)
 [![Sourcegraph](https://sourcegraph.com/github.com/zofan/go-sitemap/-/badge.svg)](https://sourcegraph.com/github.com/zofan/go-sitemap?badge)
-[![Code Climate](https://codeclimate.com/github/zofan/go-sitemap/badges/gpa.svg)](https://codeclimate.com/github/zofan/go-sitemap)
-[![Test Coverage](https://codeclimate.com/github/zofan/go-sitemap/badges/coverage.svg)](https://codeclimate.com/github/zofan/go-sitemap)
 [![HitCount](http://hits.dwyl.io/zofan/go-sitemap.svg)](http://hits.dwyl.io/zofan/go-sitemap)
 
 #### Features
