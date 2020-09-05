@@ -41,7 +41,7 @@ func TestParseURL(t *testing.T) {
 		ChangeFreq string
 		LastMod    string
 		Priority   float64
-		Type       int
+		Type       string
 	}{
 		{
 			Loc:        `https://example.com/index0.xml.gz?x=☂`,

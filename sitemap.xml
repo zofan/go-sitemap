@@ -13,7 +13,9 @@ http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd"
         <lastmod>invalid</lastmod>
     </sitemap>
     <url>
-        <LOC>https://example.com/page/1</LOC>
+        <LOC>
+            https://example.com/page/1
+        </LOC>
         <changefreq>yearly</changefreq>
         <priority>0.000</priority>
         <lastmod>2019-05-23</lastmod>
@@ -22,6 +24,8 @@ http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd"
         <loc>https://example.com/page/2</loc>
         <changefreq>weekly</changefreq>
         <priority>1.000</priority>
-        <lastmod>2019-02-02T14:05:06+06:44</lastmod>
+        <lastmod>
+            2019-02-02T14:05:06+06:44
+        </lastmod>
     </URL>
 </sitemapindex>
