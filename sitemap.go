@@ -19,7 +19,7 @@ const (
 	TypeURL     = `url`
 )
 
-var ErrWrongContentType = errors.New(`wrong content type`)
+var ErrWrongContentType = errors.New(`sitemap: wrong content type`)
 
 type Item struct {
 	Loc        *url.URL
