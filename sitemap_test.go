@@ -21,13 +21,17 @@ var baseHTTPResponse = http.Response{
 	Request: &http.Request{URL: testURL},
 }
 
-func TestParseURL(t *testing.T) {
-	xmlFile, _ := os.Open(`./sitemap.xml`)
+func TestParseStreamXML(t *testing.T) {
+	xmlFile, err := os.Open(`./sitemap.xml`)
+	if err != nil {
+		t.Error(err)
+	}
+	defer xmlFile.Close()
+
 	var items []*Item
-	err := ParseStreamXML(xmlFile, func(i *Item) {
+	err = ParseStreamXML(xmlFile, func(i *Item) {
 		items = append(items, i)
 	})
-
 	if err != nil {
 		t.Error(err)
 	}
@@ -122,5 +126,17 @@ func TestParseResponseWrongType(t *testing.T) {
 	if err != ErrWrongContentType {
 		t.Error(err)
 		return
+	}
+}
+
+func BenchmarkParseStreamXML(b *testing.B) {
+	xmlFile, err := os.Open(`./sitemap.xml`)
+	if err != nil {
+		b.Error(err)
+	}
+	defer xmlFile.Close()
+
+	for i := 0; i < b.N; i++ {
+		_ = ParseStreamXML(xmlFile, func(i *Item) {})
 	}
 }

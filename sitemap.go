@@ -55,7 +55,7 @@ func ParseStreamXML(stream io.Reader, callback func(*Item)) error {
 		} else if tag == `sitemap` || tag == `url` {
 			item = &Item{Type: tag}
 		} else if tag[0] != '/' {
-			fillItem(item, tag, value)
+			setItem(item, tag, value)
 		}
 	}
 
@@ -124,20 +124,15 @@ func CallbackWithClient(client *http.Client, callback func(i *Item)) func(i *Ite
 	}
 }
 
-func fillItem(item *Item, tag, value string) {
-	if tag == `loc` {
+func setItem(item *Item, tag, value string) {
+	switch tag {
+	case `loc`:
 		item.Loc, _ = url.Parse(value)
-	}
-
-	if tag == `changefreq` {
+	case `changefreq`:
 		item.ChangeFreq = value
-	}
-
-	if tag == `priority` {
+	case `priority`:
 		item.Priority, _ = strconv.ParseFloat(value, 64)
-	}
-
-	if tag == `lastmod` {
+	case `lastmod`:
 		var err error
 		item.LastMod, err = time.Parse(`2006-01-02T15:04:05Z07:00`, value)
 		if err != nil {
